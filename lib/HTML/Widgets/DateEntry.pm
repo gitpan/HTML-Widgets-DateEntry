@@ -1,4 +1,4 @@
-# $Id: DateEntry.pm,v 1.3 2000/11/07 15:47:28 kennedyh Exp $
+# $Id: DateEntry.pm,v 1.5 2000/12/18 15:22:27 kennedyh Exp $
 
 =pod
 
@@ -56,7 +56,7 @@ require Exporter;
 
 @ISA = qw(Exporter);
 
-$VERSION = (split / /, q$Id: DateEntry.pm,v 1.3 2000/11/07 15:47:28 kennedyh Exp $ )[2];
+$VERSION = (split / /, q$Id: DateEntry.pm,v 1.5 2000/12/18 15:22:27 kennedyh Exp $ )[2];
 
 %EXPORT_TAGS = ( );
 @EXPORT_OK = qw(&render_widget);
@@ -243,7 +243,7 @@ sub _year_frag ($$$$ ) {
     push @fragment, qq{<option value="$_"$selected>$_</option>\n};
   }
 
-  push @fragment, qq{</select>\n};
+  push @fragment, qq{</select>};
 
   return join "", @fragment; 
 }
@@ -280,10 +280,10 @@ sub _month_frag ($$ ) {
     } else {
       $selected = "";
     }
-    push @fragment, sprintf(qq{<option value="$_"$selected>%02d</option>\n}, $_);
+    push @fragment, sprintf(qq{<option value="%02d"$selected>%02d</option>\n}, $_, $_);
   }
   
-  push @fragment, qq{</select>\n};
+  push @fragment, qq{</select>};
   
   return join "", @fragment; 
 }
@@ -318,10 +318,10 @@ sub _day_frag ($$ ) {
     } else {
       $selected = "";
     }
-    push @fragment, sprintf(qq{<option value="$_"$selected>%02d</option>\n}, $_);
+    push @fragment, sprintf(qq{<option value="%02d"$selected>%02d</option>\n}, $_, $_);
   }
   
-  push @fragment, "</select>\n";
+  push @fragment, "</select>";
   
   return join "", @fragment; 
 }

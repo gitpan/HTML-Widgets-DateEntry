@@ -2,3 +2,4 @@ Changes
 lib/HTML/Widgets/DateEntry.pm
 MANIFEST
 Makefile.PL
+t/widget.t
